@@ -1,6 +1,6 @@
 import express, { Application, Request, Response } from "express";
 import { Pool } from "pg";
-import pool from "pg";
+
 const app: Application = express();
 
 const port = 5000;
@@ -127,6 +127,42 @@ app.get("/api/v1/users/:id", async (req: Request, res: Response) => {
   } catch (error: any) {
     res.status(500).json({
       success: false,
+      message: error?.message,
+      error: error,
+    });
+  }
+});
+
+//UPDATE User
+
+app.put("/api/v1/users/:id", async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    const { name, password, age, is_Active } = req.body;
+
+    const result = await pool.query(
+      `
+      
+      UPDATE users SET 
+      name = COALESCE($1,name),
+      password = COALESCE($2, password),
+      age = COALESCE($3,age),
+      is_Active = COALESCE($4, is_Active),
+      updated_at = NOW()
+      where id = $5 RETURNING *
+      
+      `,
+      [name ?? null, password ?? null, age ?? null, is_Active ?? null, id],
+    );
+
+    res.status(200).json({
+      success: true,
+      message: "User updated sucessfully",
+      data: result.rows,
+    });
+  } catch (error: any) {
+    res.status(500).json({
+      success: true,
       message: error?.message,
       error: error,
     });
