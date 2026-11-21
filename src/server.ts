@@ -1,3 +1,4 @@
+import { Result } from "./../node_modules/@types/pg/index.d";
 import express, { Application, Request, Response } from "express";
 import { Pool } from "pg";
 
@@ -119,6 +120,12 @@ app.get("/api/v1/users/:id", async (req: Request, res: Response) => {
       [id],
     );
 
+    if (result.rowCount === 0) {
+      res.status(404).json({
+        success: true,
+        message: "User not found",
+      });
+    }
     res.status(200).json({
       success: true,
       message: "Get the user sucessfully",
@@ -155,6 +162,12 @@ app.put("/api/v1/users/:id", async (req: Request, res: Response) => {
       [name ?? null, password ?? null, age ?? null, is_Active ?? null, id],
     );
 
+    if (result.rowCount === 0) {
+      res.status(404).json({
+        success: true,
+        message: "User not found",
+      });
+    }
     res.status(200).json({
       success: true,
       message: "User updated sucessfully",
@@ -162,7 +175,40 @@ app.put("/api/v1/users/:id", async (req: Request, res: Response) => {
     });
   } catch (error: any) {
     res.status(500).json({
+      success: false,
+      message: error?.message,
+      error: error,
+    });
+  }
+});
+
+app.delete("/api/v1/users/:id", async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+
+    const result = await pool.query(
+      `
+      
+      DELETE FROM users WHERE id = $1
+      
+      `,
+      [id],
+    );
+
+    if (result.rowCount === 0) {
+      res.status(404).json({
+        success: true,
+        message: "User not found",
+      });
+    }
+
+    res.status(200).json({
       success: true,
+      message: "User deleted successfully",
+    });
+  } catch (error: any) {
+    res.status(500).json({
+      success: false,
       message: error?.message,
       error: error,
     });
