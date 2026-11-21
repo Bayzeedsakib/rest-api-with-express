@@ -1,5 +1,6 @@
 import express, { Application, Request, Response } from "express";
 import { Pool } from "pg";
+import pool from "pg";
 const app: Application = express();
 
 const port = 5000;
@@ -48,6 +49,8 @@ app.get("/", (req: Request, res: Response) => {
   });
 });
 
+//POST METHOD()
+
 app.post("/api/v1/users", async (req: Request, res: Response) => {
   // console.log(req.body);
 
@@ -67,6 +70,58 @@ app.post("/api/v1/users", async (req: Request, res: Response) => {
     res.status(201).json({
       success: true,
       message: "User Created",
+      data: result.rows[0],
+    });
+  } catch (error: any) {
+    res.status(500).json({
+      success: false,
+      message: error?.message,
+      error: error,
+    });
+  }
+});
+
+//GET METHOD()
+
+app.get("/api/v1/users", async (req: Request, res: Response) => {
+  try {
+    const result = await pool.query(`
+      
+      select * from users
+      
+      `);
+
+    res.status(200).json({
+      success: true,
+      message: "All data retrieved",
+      data: result.rows,
+    });
+  } catch (error: any) {
+    res.status(501).json({
+      success: false,
+      message: error?.message,
+      error: error,
+    });
+  }
+});
+
+//GetById -> req.url => /product/123
+
+app.get("/api/v1/users/:id", async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    const result = await pool.query(
+      `
+        
+        SELECT * FROM users WHERE id = $1
+        
+        `,
+      [id],
+    );
+
+    res.status(200).json({
+      success: true,
+      message: "Get the user sucessfully",
       data: result.rows[0],
     });
   } catch (error: any) {
