@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { pool } from "../db/index";
+import { pool } from "../../db/index";
 import { userService } from "./user.service";
 import { IUser } from "./user.interface";
 
