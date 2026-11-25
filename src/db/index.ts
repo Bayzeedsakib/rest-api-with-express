@@ -1,13 +1,13 @@
 import { Pool } from "pg";
+import config from "../Config/Index";
 
-const pool = new Pool({
-  connectionString:
-    "postgresql://neondb_owner:npg_vC8hlu6XEYDK@ep-jolly-water-azpvhbqz.c-3.ap-southeast-1.aws.neon.tech/neondb?sslmode=false&channel_binding=require",
+export const pool = new Pool({
+  connectionString: config.connection_string,
 });
 
 // console.log(pool);
 
-const initDB = async () => {
+export const initDB = async () => {
   try {
     await pool.query(`
         CREATE TABLE IF NOT EXISTS users (
@@ -27,5 +27,3 @@ const initDB = async () => {
     console.log(error);
   }
 };
-
-initDB();
