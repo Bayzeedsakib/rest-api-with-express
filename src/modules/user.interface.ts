@@ -6,4 +6,6 @@ export interface IUser {
   password: string;
 
   age?: number | null;
+
+  is_Active: string;
 }
