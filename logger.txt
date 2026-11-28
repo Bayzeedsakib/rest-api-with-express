@@ -1,0 +1,76 @@
+Method: GET | URL: / | Time: 1795778003283Method: GET | URL: / | Time: 1795778044387Method: GET | URL: / | Time: 1795778083556Method: GET | URL: /api/v1/profile | Time: 1795778095922Method: GET | URL: /api/v1/profiles | Time: 1795778100487
+Method: GET | URL: /api/v1/profiles | Time: 1795778174816
+
+Method: GET | URL: / | Time: 1795778184304
+
+Method: GET | URL: / | Time: 1795778213196
+
+Method: GET | URL: / | Time: 1795778230688
+
+Method: GET | URL: /api/v1/profiles | Time: 1795778236317
+
+Method: GET | URL: /api/v1/profile | Time: 1795778256079
+
+Method: GET | URL: /api/v1/users/9/profiles | Time: 1795778330000
+
+Method: GET | URL: /api/v1/users/9/profile | Time: 1795778337761
+
+Method: GET | URL: / | Time: 1795781394107
+
+Method: GET | URL: /api/v1/profiles | Time: 1795781434246
+
+Method: GET | URL: /api/v1/profiles | Time: 1795781434434
+
+Method: GET | URL: /api/v1/profile | Time: 1795781443736
+
+Method: GET | URL: /api/v1/profiles | Time: 1795781530007
+
+Method: GET | URL: /api/v1/profiles | Time: 1795781531049
+
+Method: GET | URL: /api/v1/users | Time: 1795781734874
+
+Method: GET | URL: / | Time: 1795781752018
+
+Method: GET | URL: /api/v1/users/9 | Time: 1795781808677
+
+Method: GET , Url: /api/v1/users/, Time:1795782593892
+
+Method: GET | Url: /api/v1/users/7 | Time:1795782635363
+
+Method: GET | Url: /api/v1/users | Time:1795783778986
+
+Method: GET | Url: /api/v1/users/7 | Time:1795783780375
+
+Method: GET | Url: /api/v1/users | Time:1795783783669
+
+Method: GET | Url: /api/v1/users | Time:1795783953141
+
+Method: GET | Url: /api/v1/users | Time:1795784074564
+
+Method: GET | Url: /api/v1/users | Time:1795784117631
+
+Method: POST | Url: /api/v1/auth/login | Time:1795785030552
+
+Method: GET | Url: /api/v1/users | Time:1795785101094
+
+Method: GET | Url: /api/v1/users | Time:1795785112203
+
+Method: GET | Url: /api/v1/users | Time:1795785850639
+
+Method: GET | Url: /api/v1/users | Time:1795785863801
+
+Method: GET | Url: /api/v1/users | Time:1795785883389
+
+Method: GET | Url: /api/v1/users | Time:1795785896098
+
+Method: POST | Url: /api/v1/auth/login | Time:1795847995757
+
+Method: GET | Url: /api/v1/users | Time:1795848023370
+
+Method: POST | Url: /api/v1/users | Time:1795848185233
+
+Method: POST | Url: /api/v1/auth/login | Time:1795848227492
+
+Method: GET | Url: /api/v1/users | Time:1795848250662
+
+Method: GET | Url: /api/v1/users | Time:1795849342420
