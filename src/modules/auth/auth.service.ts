@@ -39,6 +39,7 @@ const userLoginFromDb = async (payload: ILogin) => {
     id: user.rows[0].id,
     name: user.rows[0].name,
     email: user.rows[0].email,
+    role: user.rows[0].role,
   };
 
   const accessToken = jwt.sign(jwtPayload, config.jwt_secret, {

@@ -23,7 +23,6 @@ app.use("/api/v1/profiles", profileRoute);
 app.use("/api/v1/auth", authRoute);
 
 app.get("/", (req: Request, res: Response) => {
-  console.log(req);
   // res.send("This is root route");
   res.status(200).json({
     success: true,

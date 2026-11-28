@@ -7,5 +7,7 @@ export interface IUser {
 
   age?: number | null;
 
+  role?: string;
+
   is_Active: string;
 }
